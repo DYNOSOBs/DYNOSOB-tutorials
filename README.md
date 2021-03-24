@@ -11,6 +11,7 @@ Table of Contents
 
 - 💻 [How to run python script in a cluster](https://github.com/Saptarshi07/cluster-tutorial)
 - 🗣️ [Presentation with Latex](https://github.com/Nikoleta-v3/talks/tree/master/lightning-talks/presentation%20with%20Latex)
+- 🐍 [Virtual Environment with Python on a cluster](src/virtual-env-with-python-on-cluster.md)
 
 
 Contributions

@@ -15,6 +15,7 @@ Table of Contents
 - 🎲 [Workshop on Game Theory using the programming language Python](https://github.com/Nikoleta-v3/Game-Theory-and-Python)
 - 🖊️ [Scientific Writing with git](https://github.com/DYNOSOBs/DYNOSOB-scientific-writing-with-git)
 - 📝 [Tutorial on Latex](src/latex.md)
+- 💾 [Managing terminal configuration](src/terminal_style.md)
 
 Contributions
 -------------

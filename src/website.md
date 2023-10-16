@@ -56,105 +56,171 @@ You will need an editor of your choice. I use
 
 So, here's a checklist of what you need:
 
-- [] Follow the installation steps outlined on the Jekyll website.
-- [] Create a GitHub account.
-- [] Use the terminal or Git Bash.
-- [] Install git.
-- [] Have an editor of your choice.
+- Follow the installation steps outlined on the Jekyll website.
+- Create a GitHub account.
+- Use the terminal or Git Bash.
+- Install git.
+- Have an editor of your choice.
 
 Feel free to reach out if you encounter any installation issues.
 
 ### Starting Your Own Website
 
-Let's start by creating a very basic empty website! In your terminal
-navigate to where you want the folder of your website. For example
-I am going to create the folder in my Desktop.
+Let's start by creating a very basic empty website! In your terminal, navigate
+to where you want the folder for your website. For example, I am going to create
+the folder on my Desktop.
 
-```
+```shell
 $ pwd
-
+/Users/glynatsi
 $ cd Desktop/
 ```
 
-`pwd` is a simple command to know my location. The output is different for
-everyone. Here we will run the first jekyll command:
+The `pwd` command is a simple way to determine your current location, and the
+output will vary for each person. Now, let's run the first Jekyll command:
 
 ```
 $ jekyll new myblog
+Running bundle install in /Users/glynatsi/Desktop/myblog...
+  Bundler: Fetching gem metadata from https://rubygems.org/............
+  Bundler: Resolving dependencies...
+  Bundler: Fetching sass-embedded 1.69.3 (x86_64-darwin)
+  Bundler: Installing sass-embedded 1.69.3 (x86_64-darwin)
+  Bundler: Bundle complete! 7 Gemfile dependencies, 33 gems now installed.
+  Bundler: Use `bundle info [gemname]` to see where a bundled gem is installed.
+New jekyll site installed in /Users/glynatsi/Desktop/myblog.
 ```
 
-This creates a folder in your computer called `myblog`. You don't believe me?
-Type `ls` which lists all items in your current location.
+This command creates a folder on your computer called `myblog`. Don't believe
+me? Type `ls` to list all items in your current location.
 
 ```
 $ ls
+Don't Starve Together.app
+Pub Quiz: Postdoc Retreats 2023.md
+myblog
 ```
 
-Navigate to the folder.
-
-```
-$ cd myblog
-```
-
-Let's build the site and make it available on a local server:
+Navigate to the folder using `$ cd myblog`. Now, let's build the site and make
+it available on a local server:
 
 ```
 $ bundle exec jekyll serve
 ```
 
-This will return a bit of a text but the end includes. Open this url
-in your web browser. Here is an example of how the website looks in my safari
-broswer.
+This will return a bit of text, but it will include a line along the lines
+`Server address: http://127.0.0.1:4000/`. Open this URL in your web browser.
+Here is an example of how the website looks in my Safari browser.
 
-### Changing the website
+![](../imgs/jekyll_website_default.png)
 
-Let's apply some minor changes. For example you want to change the
-homepage. To do this you need to edit the `index.md` file. Add the folowing
-line and refresh the website.
+Notice that when we compiled the website a folder `_site` was created. This is
+where the generated site is placed!
 
-- explain what a `layout` is.
+### Changing the Website
 
-There is another page in the website called about. If we wanted changes
-to this we need to edit.
+Let's make some minor adjustments to the website. For example, if you want to
+change the homepage, you need to edit the `index.markdown` file in the `myblog`
+folder. For instance, add the following line to the file and then refresh the
+website:
 
-These are low level changes so they appear once you refresh, however,
-there are other changes for which you have to rebuild before they appear.
-For example all the meta information 
+```
+Hello and welcome to my home page!
+```
 
-- Edit `_config.yml`. Explain things.
+Now, you can see the new sentence on the homepage. You'll also notice a list of
+posts. Where does this list come from? If you look at `index.markdown` at the
+top, you'll find the line:
 
-### Deploy the website
+```
+layout: home
+```
 
-Now let's assume we are ready for deployment (we really are not)! 
+You can read more about layouts
+[here](https://jekyllrb.com/docs/layouts/#:~:text=Layouts%20are%20templates%20that%20wrap,live%20in%20the%20_layouts%20directory),
+but in a nutshell, layouts are templates that wrap around your content.
 
-- Create a new repository `thnomimarks.github.io`.
+There is another page on the website called "about." If you want to make changes
+to this page, you'll need to edit the `about.markdown` file. Give it a try.
+These are low-level changes, and they will appear once you refresh the page.
+However, there are other changes that require you to rebuild the site before
+they become visible. For example, all the meta-information of the website is in
+the `_config.yml`. If you try to change the `title`, refreshing the page won't
+show the update. Instead, you need to stop the terminal running the website and
+then run the command:
 
-- Do `git` things to get the repo updated.
+```
+$ bundle exec jekyll serve
+```
 
-- Edit the config file: 
-  - domain: thnomimarks.github.io
-  - url: "https://thnomimarks.github.io"
-  - Gemfile: comment out: # gem "jekyll", "~> 4.3.2"
-  - Gemfile: add line: gem "github-pages", "~> 228", group: :jekyll_plugins
+again to see the changes take effect.
 
-I got all this from: https://docs.github.com/en/pages/quickstart.
+### Deploy the Website
+
+Now let's assume we are ready for deployment (although we're not quite there yet)!
+
+1. The first thing you need to do is create a new repository (repo) and name it after the URL you want, followed by `.github.io`. For example, if you want a website for `nomimarks`, your repo's name should be `nomimarks.github.io`.
+
+2. Now that we've created the online repo, we need to connect it to the local copy using the GitHub repo. From the code page of your repo, you need to copy the `ssh` address of your repo.
+
+Time for your first Git command. In the terminal, run this while in the `myblog` directory:
+
+```shell
+$ git remote set-url origin git@github.com:ThNomiMarks/nomimarks.github.io.git
+```
+
+3. Next, we need to make a few changes to the `_config` file:
+
+   - Change the `domain:` argument to be `nomimarks.github.io` (or your equivalent name).
+   - Change the `url:` argument to `https://thnomimarks.github.io`.
+
+Now we need to edit the `Gemfile`:
+
+   - Comment out (with `#`) the line `gem "jekyll", "~> 4.3.2"`.
+   - Add the following line to the file: `gem "github-pages", "~> 228", group: :jekyll_plugins`.
+
+(By the way, I got all this from here: https://docs.github.com/en/pages/quickstart.)
+
+4. Commit and Push
+
+Once you have made all these changes, you'll need to update your copy on GitHub. First, commit everything:
+
+```shell
+$ git add .
+$ git commit -m "drafting my website"
+```
+
+Now let's push to our branch. Note that we have been working in the `main` branch:
+
+```shell
+$ git push origin main
+```
+
+5. GitHub Pages
+
+Go to your repo and refresh. Check that all the new files are there. Then go to settings, and on the left, you can find the "Pages" tab. Select the branch you want to deploy, which in our case is `main`. Wait for a little bit, and then GitHub will let you know that your website is online!
+
+For example, here's what the Pages for my personal website look like:
+
+![GitHub Pages](../imgs/GitHub_pages.png)
 
 ### Going Forward
 
-This is a very simple and minimalistc guide about createing a website just
-to get you familiar and started. You could further develop your our website
-refreacling your own style! You want to do this that's awesome and Jekyll
-has a lot of guides on this: .
+This is a very simple and minimalist guide for creating a website just to help
+you get familiar and started. You can further develop your own website,
+reflecting your unique style. If you want to do this, that's awesome, and Jekyll
+has many guides on this: https://jekyllrb.com/resources/.
 
-However, sometimes creating your own theme can be hard. Jekyll has a fantastic
-comminuty and a lot of people have made their themes availabe online fo free.
-You can check this website for free themes or even paid:
+However, sometimes creating your own theme can be challenging. Jekyll has a
+fantastic community, and many people have made their themes available online for
+free. You can check this website for free themes or even paid ones:
 https://jekyllthemes.io/free.
 
-Each style has it's on GitHub page and there they explain how to use the theme,
-make changes that reflect you and sometimes even how to deploy the website!
-I hope you enjoy going down the rabbit whole. In my experience things can take some time and it can become furstraing, however, you gain a lot from setting
-up your own website! Like knowlegde in html and if you were to follow
-this guie with git.
+Each style has its own GitHub page where they explain how to use the theme, make
+changes that reflect your style, and sometimes even how to deploy the website. I
+hope you enjoy diving into this world. In my experience, things can take some
+time, and it can become frustrating, but you gain a lot from setting up your
+website, like knowledge in HTML. If you were to follow this guide with Git, it
+can be a valuable learning experience.
 
-This is just one way and not the best way!.
+Remember, this is just one way, not necessarily the best way!

@@ -16,6 +16,7 @@ Table of Contents
 - 🖊️ [Scientific Writing with git](https://github.com/DYNOSOBs/DYNOSOB-scientific-writing-with-git)
 - 📝 [Tutorial on Latex](src/latex.md)
 - 💾 [Managing terminal configuration](src/terminal_style.md)
+- 🌐 [A Speed Introduction to Creating a Website](src/website.md)
 
 Contributions
 -------------

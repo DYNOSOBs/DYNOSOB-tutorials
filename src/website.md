@@ -1,16 +1,28 @@
-# A speed Introduction to Creating a Website
+# A Speed Introduction to Creating a Website
 
-We will use Jekyll and Github Actions. From:
+This is a very quick and simple introduction on creating and 
+putting online a personal or any other website. 
+We won't delve into the details of making our website
+ pretty or content-rich, but we will provide links to 
+more information if you are interested in properly setting up a website.
 
-> Jekyll is a static site generator. It takes text written in your favorite
-> markup language and uses layouts to create a static website. You can tweak the
-> site’s look and feel, URLs, the data displayed on the page, and more.
+The tools we will use are Jekyll and GitHub Pages.
 
-### Examples:
+We will use Jekyll to build the website and GitHub Actions 
+to deploy it and put it online.
 
-- The groups' website: http://web.evolbio.mpg.de/social-behaviour/
-- My personal website: https://nikoleta-v3.github.io
+What is Jekyll? From the official website:
 
+> Jekyll is a static site generator. It takes text written in your favorite markup language and uses layouts to create a static website. You can tweak the site's look and feel, URLs, the data displayed on the page, and more.
+
+What is GitHub Pages?
+
+Here are two examples of websites that use Jekyll:
+
+- The group's website: [http://web.evolbio.mpg.de/social-behaviour/](http://web.evolbio.mpg.de/social-behaviour/)
+- My personal website: [https://nikoleta-v3.github.io](https://nikoleta-v3.github.io)
+
+My personal website also uses GitHub Actions. How can we tell? Well, it's right there in the name, but we will get to that.
 
 ### Installation
 
